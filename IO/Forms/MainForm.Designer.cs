@@ -40,6 +40,7 @@
             this.transferDirectionLabel = new System.Windows.Forms.Label();
             this.stateLabel = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.stateText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cpuMemory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalMemory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -123,6 +124,7 @@
             this.transferDirectionBtn.TabIndex = 9;
             this.transferDirectionBtn.Text = "--->";
             this.transferDirectionBtn.UseVisualStyleBackColor = true;
+            this.transferDirectionBtn.Click += new System.EventHandler(this.ChangeTransferDirection);
             // 
             // transferDirectionLabel
             // 
@@ -138,22 +140,33 @@
             this.stateLabel.AutoSize = true;
             this.stateLabel.Location = new System.Drawing.Point(253, 155);
             this.stateLabel.Name = "stateLabel";
-            this.stateLabel.Size = new System.Drawing.Size(168, 13);
+            this.stateLabel.Size = new System.Drawing.Size(115, 13);
             this.stateLabel.TabIndex = 11;
-            this.stateLabel.Text = "Состояние процесса: ожидание";
+            this.stateLabel.Text = "Состояние процесса:";
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(256, 181);
+            this.progressBar1.Location = new System.Drawing.Point(253, 194);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(207, 23);
             this.progressBar1.TabIndex = 12;
+            this.progressBar1.Value = 30;
+            // 
+            // stateText
+            // 
+            this.stateText.AutoSize = true;
+            this.stateText.Location = new System.Drawing.Point(258, 178);
+            this.stateText.Name = "stateText";
+            this.stateText.Size = new System.Drawing.Size(112, 13);
+            this.stateText.TabIndex = 13;
+            this.stateText.Text = "Передача (300/1000)";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 312);
+            this.Controls.Add(this.stateText);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.stateLabel);
             this.Controls.Add(this.transferDirectionLabel);
@@ -169,7 +182,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Модель канала ввода/вывода данных";
             ((System.ComponentModel.ISupportInitialize)(this.cpuMemory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalMemory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -191,6 +204,7 @@
         private System.Windows.Forms.Label transferDirectionLabel;
         private System.Windows.Forms.Label stateLabel;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label stateText;
     }
 }
 
