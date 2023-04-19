@@ -30,8 +30,8 @@
         {
             this.cpuMemoryLabel = new System.Windows.Forms.Label();
             this.externalMemoryLabel = new System.Windows.Forms.Label();
-            this.cpuMemory = new System.Windows.Forms.PictureBox();
-            this.externalMemory = new System.Windows.Forms.PictureBox();
+            this.cpuMemoryPicture = new System.Windows.Forms.PictureBox();
+            this.externalMemoryPicture = new System.Windows.Forms.PictureBox();
             this.transferAmount = new System.Windows.Forms.Label();
             this.transferBlocksCount = new System.Windows.Forms.NumericUpDown();
             this.clearBtn = new System.Windows.Forms.Button();
@@ -48,8 +48,8 @@
             this.cpuMemoryScrollView = new System.Windows.Forms.Panel();
             this.externalMemoryTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.externalMemoryScrollView = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.cpuMemory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.externalMemory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cpuMemoryPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalMemoryPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transferBlocksCount)).BeginInit();
             this.rootTableLayout.SuspendLayout();
             this.controllsPanel.SuspendLayout();
@@ -88,25 +88,23 @@
             this.externalMemoryLabel.Text = "Внешнее устройство";
             this.externalMemoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cpuMemory
+            // cpuMemoryPicture
             // 
-            this.cpuMemory.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cpuMemory.Location = new System.Drawing.Point(0, 0);
-            this.cpuMemory.Name = "cpuMemory";
-            this.cpuMemory.Size = new System.Drawing.Size(472, 275);
-            this.cpuMemory.TabIndex = 3;
-            this.cpuMemory.TabStop = false;
-            this.cpuMemory.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawCpuMemory);
+            this.cpuMemoryPicture.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cpuMemoryPicture.Location = new System.Drawing.Point(0, 0);
+            this.cpuMemoryPicture.Name = "cpuMemoryPicture";
+            this.cpuMemoryPicture.Size = new System.Drawing.Size(472, 275);
+            this.cpuMemoryPicture.TabIndex = 3;
+            this.cpuMemoryPicture.TabStop = false;
             // 
-            // externalMemory
+            // externalMemoryPicture
             // 
-            this.externalMemory.Dock = System.Windows.Forms.DockStyle.Top;
-            this.externalMemory.Location = new System.Drawing.Point(0, 0);
-            this.externalMemory.Name = "externalMemory";
-            this.externalMemory.Size = new System.Drawing.Size(472, 275);
-            this.externalMemory.TabIndex = 4;
-            this.externalMemory.TabStop = false;
-            this.externalMemory.Paint += new System.Windows.Forms.PaintEventHandler(this.DrawExternalMemory);
+            this.externalMemoryPicture.Dock = System.Windows.Forms.DockStyle.Top;
+            this.externalMemoryPicture.Location = new System.Drawing.Point(0, 0);
+            this.externalMemoryPicture.Name = "externalMemoryPicture";
+            this.externalMemoryPicture.Size = new System.Drawing.Size(472, 275);
+            this.externalMemoryPicture.TabIndex = 4;
+            this.externalMemoryPicture.TabStop = false;
             // 
             // transferAmount
             // 
@@ -249,7 +247,7 @@
             // cpuMemoryScrollView
             // 
             this.cpuMemoryScrollView.AutoScroll = true;
-            this.cpuMemoryScrollView.Controls.Add(this.cpuMemory);
+            this.cpuMemoryScrollView.Controls.Add(this.cpuMemoryPicture);
             this.cpuMemoryScrollView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cpuMemoryScrollView.Location = new System.Drawing.Point(3, 33);
             this.cpuMemoryScrollView.Name = "cpuMemoryScrollView";
@@ -274,7 +272,7 @@
             // externalMemoryScrollView
             // 
             this.externalMemoryScrollView.AutoScroll = true;
-            this.externalMemoryScrollView.Controls.Add(this.externalMemory);
+            this.externalMemoryScrollView.Controls.Add(this.externalMemoryPicture);
             this.externalMemoryScrollView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.externalMemoryScrollView.Location = new System.Drawing.Point(3, 33);
             this.externalMemoryScrollView.Name = "externalMemoryScrollView";
@@ -291,8 +289,8 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Модель канала ввода/вывода данных";
-            ((System.ComponentModel.ISupportInitialize)(this.cpuMemory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.externalMemory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cpuMemoryPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.externalMemoryPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transferBlocksCount)).EndInit();
             this.rootTableLayout.ResumeLayout(false);
             this.rootTableLayout.PerformLayout();
@@ -313,8 +311,8 @@
         #endregion
         private System.Windows.Forms.Label cpuMemoryLabel;
         private System.Windows.Forms.Label externalMemoryLabel;
-        private System.Windows.Forms.PictureBox cpuMemory;
-        private System.Windows.Forms.PictureBox externalMemory;
+        private System.Windows.Forms.PictureBox cpuMemoryPicture;
+        private System.Windows.Forms.PictureBox externalMemoryPicture;
         private System.Windows.Forms.Label transferAmount;
         private System.Windows.Forms.NumericUpDown transferBlocksCount;
         private System.Windows.Forms.Button clearBtn;

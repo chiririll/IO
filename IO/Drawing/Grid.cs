@@ -1,64 +1,103 @@
 ﻿using System;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace IO.View
 {
     public class Grid
     {
-        public Point pos;
-        public Size cellSize;
-        public int cellsInRow;
+        private const int bottomOffset = 5;
 
-        public Grid(Point pos, Size cellSize, int cellsInRow)
+        private PictureBox container;
+        private Point offset;
+
+        private Size cellSize;
+
+        public Grid(PictureBox container, Size cellSize, int cellsCount)
         {
-            this.pos = pos;
+            this.CellsCount = cellsCount;
+
+            this.container = container;
+            this.offset = new Point(0, 0);
             this.cellSize = cellSize;
-            this.cellsInRow = cellsInRow;
         }
 
-        public void Draw(Graphics gfx, int cellsCount, Pen color = default)
-        {
-            var rowsCount = (int)Math.Floor((float)cellsCount / cellsInRow);
+        public int CellsCount { get; private set; }
+        public int CellsInRow { get; private set; }
+        public int RowsCount { get; private set; }
 
-            var rectSize = new Size(cellsInRow * cellSize.Width, rowsCount * cellSize.Height);
-            var memRect = new Rectangle(pos, rectSize);
+        public void SetCellsCount(int cellsCount)
+        {
+            this.CellsCount = cellsCount;
+
+            container.Invalidate();
+        }
+
+        public void RecalculateSize()
+        {
+            CellsInRow = container.Size.Width / cellSize.Width;
+            RowsCount = (int)Math.Floor((float)CellsCount / CellsInRow);
+
+            var actualHeight = 2 * offset.Y + (RowsCount + 1) * cellSize.Height + bottomOffset;
+            container.Height = actualHeight;
+        }
+
+        public void Draw(Graphics gfx, Pen color = default)
+        {
+            RecalculateSize();
+
+            var rectSize = new Size(CellsInRow * cellSize.Width, RowsCount * cellSize.Height);
+            var memRect = new Rectangle(offset, rectSize);
+            
             gfx.DrawRectangle(color, memRect);
 
-            for (int i = 1; i < rowsCount; i++)
+            for (int i = 1; i < RowsCount; i++)
             {
-                var yPos = pos.Y + cellSize.Height * i;
-                gfx.DrawLine(color, pos.X, yPos, pos.X + rectSize.Width, yPos);
+                var yPos = offset.Y + cellSize.Height * i;
+                gfx.DrawLine(color, offset.X, yPos, offset.X + rectSize.Width, yPos);
             }
 
-            for (int i = 1; i < cellsInRow; i++)
+            for (int i = 1; i < CellsInRow; i++)
             {
-                var xPos = pos.X + cellSize.Width * i;
-                gfx.DrawLine(color, xPos, pos.Y, xPos, pos.Y + rectSize.Height);
+                var xPos = offset.X + cellSize.Width * i;
+                gfx.DrawLine(color, xPos, offset.Y, xPos, offset.Y + rectSize.Height);
             }
 
-            var inLastRow = cellsCount - rowsCount * cellsInRow;
+            var inLastRow = CellsCount - RowsCount * CellsInRow;
             if (inLastRow > 0)
             {
-                var yMin = pos.Y + rectSize.Height;
+                var yMin = offset.Y + rectSize.Height;
                 var yMax = yMin + cellSize.Height;
-                gfx.DrawLine(color, pos.X, yMax, pos.X + rectSize.Width, yMax);
+                gfx.DrawLine(color, offset.X, yMax, offset.X + rectSize.Width, yMax);
 
                 for (int i = 0; i <= inLastRow; i++)
                 {
-                    var xPos = pos.X + cellSize.Width * i;
+                    var xPos = offset.X + cellSize.Width * i;
                     gfx.DrawLine(color, xPos, yMin, xPos, yMax);
                 }
 
-                gfx.DrawLine(color, pos.X + rectSize.Width, yMin, pos.X + rectSize.Width, yMax);
+                gfx.DrawLine(color, offset.X + rectSize.Width, yMin, offset.X + rectSize.Width, yMax);
             }
         }
 
         public Point GetCellPosition(int index)
         {
-            var y = index / cellsInRow;
-            var x = index % cellsInRow;
+            var y = index / CellsInRow;
+            var x = index % CellsInRow;
 
-            return new Point(pos.X + x * cellSize.Width, pos.Y + y * cellSize.Height);
+            return new Point(offset.X + x * cellSize.Width, offset.Y + y * cellSize.Height);
+        }
+
+        public int GetCellIndex(Point pos)
+        {
+            var xi = (pos.X - offset.X) / cellSize.Width;
+            var yi = (pos.Y - offset.Y) / cellSize.Height;
+            var idx = CellsInRow * yi + xi;
+
+            if (xi >= CellsInRow || yi >= RowsCount || idx >= CellsCount)
+                return -1;
+
+            return idx;
         }
     }
 }
