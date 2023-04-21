@@ -130,6 +130,7 @@
             this.clearBtn.TabIndex = 7;
             this.clearBtn.Text = "Очистить";
             this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.ClearClick);
             // 
             // transferBtn
             // 

@@ -10,7 +10,6 @@ namespace IO.View
         private Selection selection;
         private Grid grid;
 
-
         public MemoryView(PictureBox pictureBox)
         {
             this.pictureBox = pictureBox;
@@ -22,14 +21,25 @@ namespace IO.View
             pictureBox.MouseDown += StartSelecting;
             pictureBox.MouseUp += StopSelecting;
             pictureBox.MouseMove += UpdateSelection;
+            pictureBox.Resize += Resize;
         }
 
         ~MemoryView()
         {
             pictureBox.Paint -= Draw;
+
             pictureBox.MouseDown -= StartSelecting;
             pictureBox.MouseUp -= StopSelecting;
             pictureBox.MouseMove -= UpdateSelection;
+            pictureBox.Resize -= Resize;
+        }
+
+        public ISelection Selection => selection;
+        
+        public void ClearSelection()
+        {
+            selection.Clear();
+            pictureBox.Invalidate();
         }
 
         private void Draw(object sender, PaintEventArgs e)
@@ -62,12 +72,17 @@ namespace IO.View
             var me = e as MouseEventArgs;
 
             var cellIndex = grid.GetCellIndex(me.Location);
-            Console.WriteLine(cellIndex);
 
             selection.Set(cellIndex);
             pictureBox.Invalidate();
         }
 
         private void StopSelecting(object sender, MouseEventArgs e) => selection.Selecting = false;
+
+        private void Resize(object sender, EventArgs e)
+        {
+            grid.RecalculateSize();
+            pictureBox.Invalidate();
+        }
     }
 }

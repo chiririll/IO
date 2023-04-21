@@ -2,7 +2,7 @@
 
 namespace IO
 {
-    public class Selection
+    public class Selection : ISelection
     {
         public bool Selecting { get; set; }
         public bool Drawable => From > 0 && To > 0;

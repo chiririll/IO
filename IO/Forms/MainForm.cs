@@ -23,5 +23,11 @@ namespace IO
             else
                 transferDirectionBtn.Text = "--->";
         }
+
+        private void ClearClick(object sender, System.EventArgs e)
+        {
+            cpuMemory.ClearSelection();
+            externalMemory.ClearSelection();
+        }
     }
 }
