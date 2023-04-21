@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drawing\GraphicsExtensions.cs" />
     <Compile Include="Drawing\Grid.cs" />
+    <Compile Include="Drawing\Selection.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

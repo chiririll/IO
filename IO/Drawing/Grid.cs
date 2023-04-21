@@ -13,13 +13,17 @@ namespace IO.View
 
         private Size cellSize;
 
-        public Grid(PictureBox container, Size cellSize, int cellsCount)
+        private Selection selection;
+
+        public Grid(PictureBox container, Size cellSize, int cellsCount, Selection selection = null)
         {
             this.CellsCount = cellsCount;
 
             this.container = container;
             this.offset = new Point(0, 0);
             this.cellSize = cellSize;
+
+            this.selection = selection;
         }
 
         public int CellsCount { get; private set; }
@@ -42,44 +46,6 @@ namespace IO.View
             container.Height = actualHeight;
         }
 
-        public void Draw(Graphics gfx, Pen color = default)
-        {
-            RecalculateSize();
-
-            var rectSize = new Size(CellsInRow * cellSize.Width, RowsCount * cellSize.Height);
-            var memRect = new Rectangle(offset, rectSize);
-            
-            gfx.DrawRectangle(color, memRect);
-
-            for (int i = 1; i < RowsCount; i++)
-            {
-                var yPos = offset.Y + cellSize.Height * i;
-                gfx.DrawLine(color, offset.X, yPos, offset.X + rectSize.Width, yPos);
-            }
-
-            for (int i = 1; i < CellsInRow; i++)
-            {
-                var xPos = offset.X + cellSize.Width * i;
-                gfx.DrawLine(color, xPos, offset.Y, xPos, offset.Y + rectSize.Height);
-            }
-
-            var inLastRow = CellsCount - RowsCount * CellsInRow;
-            if (inLastRow > 0)
-            {
-                var yMin = offset.Y + rectSize.Height;
-                var yMax = yMin + cellSize.Height;
-                gfx.DrawLine(color, offset.X, yMax, offset.X + rectSize.Width, yMax);
-
-                for (int i = 0; i <= inLastRow; i++)
-                {
-                    var xPos = offset.X + cellSize.Width * i;
-                    gfx.DrawLine(color, xPos, yMin, xPos, yMax);
-                }
-
-                gfx.DrawLine(color, offset.X + rectSize.Width, yMin, offset.X + rectSize.Width, yMax);
-            }
-        }
-
         public Point GetCellPosition(int index)
         {
             var y = index / CellsInRow;
@@ -98,6 +64,62 @@ namespace IO.View
                 return -1;
 
             return idx;
+        }
+
+        public void Draw(Graphics gfx)
+        {
+            RecalculateSize();
+            DrawGrid(gfx, Pens.LightGray);
+            DrawSelection(gfx, Pens.Red);
+        }
+
+        private void DrawGrid(Graphics gfx, Pen pen)
+        {
+            var rectSize = new Size(CellsInRow * cellSize.Width, RowsCount * cellSize.Height);
+            var memRect = new Rectangle(offset, rectSize);
+
+            gfx.DrawRectangle(pen, memRect);
+
+            for (int i = 1; i < RowsCount; i++)
+            {
+                var yPos = offset.Y + cellSize.Height * i;
+                gfx.DrawLine(pen, offset.X, yPos, offset.X + rectSize.Width, yPos);
+            }
+
+            for (int i = 1; i < CellsInRow; i++)
+            {
+                var xPos = offset.X + cellSize.Width * i;
+                gfx.DrawLine(pen, xPos, offset.Y, xPos, offset.Y + rectSize.Height);
+            }
+
+            var inLastRow = CellsCount - RowsCount * CellsInRow;
+            if (inLastRow > 0)
+            {
+                var yMin = offset.Y + rectSize.Height;
+                var yMax = yMin + cellSize.Height;
+                gfx.DrawLine(pen, offset.X, yMax, offset.X + rectSize.Width, yMax);
+
+                for (int i = 0; i <= inLastRow; i++)
+                {
+                    var xPos = offset.X + cellSize.Width * i;
+                    gfx.DrawLine(pen, xPos, yMin, xPos, yMax);
+                }
+
+                gfx.DrawLine(pen, offset.X + rectSize.Width, yMin, offset.X + rectSize.Width, yMax);
+            }
+        }
+
+        private void DrawSelection(Graphics gfx, Pen pen)
+        {
+            if (selection == null || !selection.Drawable)
+            {
+                return;
+            }
+
+            for (int cell = selection.From; cell <= selection.To; cell++)
+            {
+                gfx.DrawRectangle(pen, GetCellPosition(cell), cellSize);
+            }
         }
     }
 }
