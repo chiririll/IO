@@ -6,18 +6,20 @@ namespace IO.View
 {
     internal class MemoryView
     {
-        private Memory memory;
+        private readonly Memory memory;
 
-        private PictureBox pictureBox;
-        private Grid grid;
+        private readonly PictureBox pictureBox;
+        private readonly Grid grid;
+
+        public bool SelectionEnabled { get; set; } = true;
 
         public MemoryView(PictureBox pictureBox, Memory memory)
         {
             this.memory = memory;
             this.pictureBox = pictureBox;
-            this.grid = new Grid(pictureBox, new Size(15, 20), memory.Size, memory.Selection);
+            this.grid = new Grid(pictureBox, new Size(15, 20), memory.Size);
 
-            memory.SizeChanged += MemoryResize;
+            memory.MemoryUpdate += MemoryUpdated;
             
             pictureBox.Paint += Draw;
  
@@ -27,10 +29,9 @@ namespace IO.View
             pictureBox.Resize += ContainerResize;
         }
 
-
         ~MemoryView()
         {
-            memory.SizeChanged -= MemoryResize;
+            memory.MemoryUpdate -= MemoryUpdated;
 
             pictureBox.Paint -= Draw;
 
@@ -48,20 +49,21 @@ namespace IO.View
 
         private void Draw(object sender, PaintEventArgs e)
         {
-            grid.Draw(e.Graphics, memory.Cells);
+            grid.Draw(e.Graphics, memory.Selection, memory.Cells);
         }
         
-        private void MemoryResize()
+        private void MemoryUpdated()
         {
             grid.SetCellsCount(memory.Size);
         }
 
         private void StartSelecting(object sender, MouseEventArgs e)
         {
-            memory.Selection.Clear();
-            var me = e as MouseEventArgs;
+            if (!SelectionEnabled) return;
 
-            var startCell = grid.GetCellIndex(me.Location);
+            memory.Selection.Clear();
+
+            var startCell = grid.GetCellIndex(e.Location);
             if (startCell < 0)
             {
                 return;
@@ -71,15 +73,14 @@ namespace IO.View
             pictureBox.Invalidate();
         }
 
-        private void UpdateSelection(object sender, EventArgs e)
+        private void UpdateSelection(object sender, MouseEventArgs e)
         {
             if (!memory.Selection.Selecting)
             {
                 return;
             }
 
-            var me = e as MouseEventArgs;
-            var cellIndex = grid.GetCellIndex(me.Location);
+            var cellIndex = grid.GetCellIndex(e.Location);
 
             memory.Selection.Set(cellIndex);
             pictureBox.Invalidate();

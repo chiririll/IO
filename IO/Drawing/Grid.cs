@@ -19,13 +19,10 @@ namespace IO.View
 
         private Size cellSize;
 
-        private Selection selection;
-
         public Grid(
             PictureBox container,
             Size cellSize,
             int cellsCount,
-            Selection selection = null,
             Pen gridPen = null,
             Pen selectionPen = null,
             IReadOnlyDictionary<Memory.CellType, Brush> cellBrushes = null)
@@ -35,8 +32,6 @@ namespace IO.View
             this.container = container;
             this.offset = new Point(0, 0);
             this.cellSize = cellSize;
-
-            this.selection = selection;
 
             this.selectionPen = selectionPen ?? Palette.SelectionPen;
             this.gridPen = gridPen ?? Palette.GridPen;
@@ -83,12 +78,12 @@ namespace IO.View
             return idx;
         }
 
-        public void Draw(Graphics gfx, IEnumerable<Memory.CellType> cells)
+        public void Draw(Graphics gfx, Selection selection, IEnumerable<Memory.CellType> cells)
         {
             RecalculateSize();
             DrawGrid(gfx);
-            DrawSelection(gfx);
             DrawCells(gfx, cells);
+            DrawSelection(gfx, selection);
         }
 
         private void DrawGrid(Graphics gfx)
@@ -127,7 +122,7 @@ namespace IO.View
             }
         }
 
-        private void DrawSelection(Graphics gfx)
+        private void DrawSelection(Graphics gfx, Selection selection)
         {
             if (selection == null || !selection.Valid)
             {

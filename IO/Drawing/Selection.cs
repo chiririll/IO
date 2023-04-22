@@ -17,7 +17,7 @@ namespace IO
         }
 
         public bool Selecting { get; set; }
-        public bool Valid => cell1 >= 0 && cell2 >= 0;
+        public bool Valid => cell1 >= 0 && cell1 < cellsCount && cell2 >= 0 && cell2 < cellsCount;
 
         public int From => Math.Min(cell1, cell2);
         public int To => Math.Max(cell1, cell2);
