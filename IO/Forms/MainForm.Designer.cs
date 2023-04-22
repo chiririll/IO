@@ -230,12 +230,10 @@
             // 
             // cpuMemoryTableLayout
             // 
-            this.cpuMemoryTableLayout.AutoSize = true;
-            this.cpuMemoryTableLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.cpuMemoryTableLayout.ColumnCount = 1;
-            this.cpuMemoryTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.cpuMemoryTableLayout.Controls.Add(this.cpuMemoryLabel, 0, 0);
+            this.cpuMemoryTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.cpuMemoryTableLayout.Controls.Add(this.cpuMemoryScrollView, 0, 1);
+            this.cpuMemoryTableLayout.Controls.Add(this.cpuMemoryLabel, 0, 0);
             this.cpuMemoryTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cpuMemoryTableLayout.Location = new System.Drawing.Point(3, 3);
             this.cpuMemoryTableLayout.Name = "cpuMemoryTableLayout";
@@ -286,15 +284,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1216, 618);
             this.Controls.Add(this.rootTableLayout);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(800, 300);
             this.Name = "MainForm";
             this.Text = "Модель канала ввода/вывода данных";
             ((System.ComponentModel.ISupportInitialize)(this.cpuMemoryPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.externalMemoryPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transferBlocksCount)).EndInit();
             this.rootTableLayout.ResumeLayout(false);
-            this.rootTableLayout.PerformLayout();
             this.controllsPanel.ResumeLayout(false);
             this.controllsPanel.PerformLayout();
             this.processStateFlowLayout.ResumeLayout(false);

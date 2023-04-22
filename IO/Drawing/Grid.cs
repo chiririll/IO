@@ -39,7 +39,7 @@ namespace IO.View
 
         public void RecalculateSize()
         {
-            CellsInRow = container.Size.Width / cellSize.Width;
+            CellsInRow = (container.Size.Width - offset.X) / cellSize.Width;
             RowsCount = (int)Math.Floor((float)CellsCount / CellsInRow);
 
             var actualHeight = 2 * offset.Y + (RowsCount + 1) * cellSize.Height + bottomOffset;
