@@ -6,51 +6,59 @@ namespace IO.View
 {
     internal class MemoryView
     {
+        private Memory memory;
+
         private PictureBox pictureBox;
-        private Selection selection;
         private Grid grid;
 
-        public MemoryView(PictureBox pictureBox)
+        public MemoryView(PictureBox pictureBox, Memory memory)
         {
+            this.memory = memory;
             this.pictureBox = pictureBox;
-            this.selection = new Selection();
-            this.grid = new Grid(pictureBox, new Size(15, 20), 5000, selection);
+            this.grid = new Grid(pictureBox, new Size(15, 20), memory.Size, memory.Selection);
 
+            memory.SizeChanged += MemoryResize;
+            
             pictureBox.Paint += Draw;
  
             pictureBox.MouseDown += StartSelecting;
             pictureBox.MouseUp += StopSelecting;
             pictureBox.MouseMove += UpdateSelection;
-            pictureBox.Resize += Resize;
+            pictureBox.Resize += ContainerResize;
         }
+
 
         ~MemoryView()
         {
+            memory.SizeChanged -= MemoryResize;
+
             pictureBox.Paint -= Draw;
 
             pictureBox.MouseDown -= StartSelecting;
             pictureBox.MouseUp -= StopSelecting;
             pictureBox.MouseMove -= UpdateSelection;
-            pictureBox.Resize -= Resize;
+            pictureBox.Resize -= ContainerResize;
         }
 
-        public ISelection Selection => selection;
-        
         public void ClearSelection()
         {
-            selection.Clear();
+            memory.Selection.Clear();
             pictureBox.Invalidate();
         }
 
         private void Draw(object sender, PaintEventArgs e)
         {
-            grid.Draw(e.Graphics);
-            e.Graphics.FillRectangle(Brushes.LightBlue, new Rectangle(0, 0, 15, 20));
+            grid.Draw(e.Graphics, memory.Cells);
+        }
+        
+        private void MemoryResize()
+        {
+            grid.SetCellsCount(memory.Size);
         }
 
         private void StartSelecting(object sender, MouseEventArgs e)
         {
-            selection.Clear();
+            memory.Selection.Clear();
             var me = e as MouseEventArgs;
 
             var startCell = grid.GetCellIndex(me.Location);
@@ -59,27 +67,27 @@ namespace IO.View
                 return;
             }
 
-            selection.Start(startCell);
+            memory.Selection.Start(startCell);
+            pictureBox.Invalidate();
         }
 
         private void UpdateSelection(object sender, EventArgs e)
         {
-            if (!selection.Selecting)
+            if (!memory.Selection.Selecting)
             {
                 return;
             }
 
             var me = e as MouseEventArgs;
-
             var cellIndex = grid.GetCellIndex(me.Location);
 
-            selection.Set(cellIndex);
+            memory.Selection.Set(cellIndex);
             pictureBox.Invalidate();
         }
 
-        private void StopSelecting(object sender, MouseEventArgs e) => selection.Selecting = false;
+        private void StopSelecting(object sender, MouseEventArgs e) => memory.Selection.Selecting = false;
 
-        private void Resize(object sender, EventArgs e)
+        private void ContainerResize(object sender, EventArgs e)
         {
             grid.RecalculateSize();
             pictureBox.Invalidate();

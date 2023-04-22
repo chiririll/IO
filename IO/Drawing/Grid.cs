@@ -1,4 +1,6 @@
-﻿using System;
+﻿using IO.Drawing;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,6 +10,10 @@ namespace IO.View
     {
         private const int bottomOffset = 5;
 
+        private Pen selectionPen;
+        private Pen gridPen;
+        private IReadOnlyDictionary<Memory.CellType, Brush> cellBrushes;
+
         private PictureBox container;
         private Point offset;
 
@@ -15,7 +21,14 @@ namespace IO.View
 
         private Selection selection;
 
-        public Grid(PictureBox container, Size cellSize, int cellsCount, Selection selection = null)
+        public Grid(
+            PictureBox container,
+            Size cellSize,
+            int cellsCount,
+            Selection selection = null,
+            Pen gridPen = null,
+            Pen selectionPen = null,
+            IReadOnlyDictionary<Memory.CellType, Brush> cellBrushes = null)
         {
             this.CellsCount = cellsCount;
 
@@ -24,6 +37,10 @@ namespace IO.View
             this.cellSize = cellSize;
 
             this.selection = selection;
+
+            this.selectionPen = selectionPen ?? Palette.SelectionPen;
+            this.gridPen = gridPen ?? Palette.GridPen;
+            this.cellBrushes = cellBrushes ?? Palette.CellBrushes;
         }
 
         public int CellsCount { get; private set; }
@@ -60,36 +77,37 @@ namespace IO.View
             var yi = (pos.Y - offset.Y) / cellSize.Height;
             var idx = CellsInRow * yi + xi;
 
-            if (xi >= CellsInRow || yi >= RowsCount || idx >= CellsCount)
+            if (xi >= CellsInRow || yi > RowsCount || idx >= CellsCount)
                 return -1;
 
             return idx;
         }
 
-        public void Draw(Graphics gfx)
+        public void Draw(Graphics gfx, IEnumerable<Memory.CellType> cells)
         {
             RecalculateSize();
-            DrawGrid(gfx, Pens.LightGray);
-            DrawSelection(gfx, Pens.Red);
+            DrawGrid(gfx);
+            DrawSelection(gfx);
+            DrawCells(gfx, cells);
         }
 
-        private void DrawGrid(Graphics gfx, Pen pen)
+        private void DrawGrid(Graphics gfx)
         {
             var rectSize = new Size(CellsInRow * cellSize.Width, RowsCount * cellSize.Height);
             var memRect = new Rectangle(offset, rectSize);
 
-            gfx.DrawRectangle(pen, memRect);
+            gfx.DrawRectangle(gridPen, memRect);
 
             for (int i = 1; i < RowsCount; i++)
             {
                 var yPos = offset.Y + cellSize.Height * i;
-                gfx.DrawLine(pen, offset.X, yPos, offset.X + rectSize.Width, yPos);
+                gfx.DrawLine(gridPen, offset.X, yPos, offset.X + rectSize.Width, yPos);
             }
 
             for (int i = 1; i < CellsInRow; i++)
             {
                 var xPos = offset.X + cellSize.Width * i;
-                gfx.DrawLine(pen, xPos, offset.Y, xPos, offset.Y + rectSize.Height);
+                gfx.DrawLine(gridPen, xPos, offset.Y, xPos, offset.Y + rectSize.Height);
             }
 
             var inLastRow = CellsCount - RowsCount * CellsInRow;
@@ -97,28 +115,44 @@ namespace IO.View
             {
                 var yMin = offset.Y + rectSize.Height;
                 var yMax = yMin + cellSize.Height;
-                gfx.DrawLine(pen, offset.X, yMax, offset.X + rectSize.Width, yMax);
+                gfx.DrawLine(gridPen, offset.X, yMax, offset.X + rectSize.Width, yMax);
 
                 for (int i = 0; i <= inLastRow; i++)
                 {
                     var xPos = offset.X + cellSize.Width * i;
-                    gfx.DrawLine(pen, xPos, yMin, xPos, yMax);
+                    gfx.DrawLine(gridPen, xPos, yMin, xPos, yMax);
                 }
 
-                gfx.DrawLine(pen, offset.X + rectSize.Width, yMin, offset.X + rectSize.Width, yMax);
+                gfx.DrawLine(gridPen, offset.X + rectSize.Width, yMin, offset.X + rectSize.Width, yMax);
             }
         }
 
-        private void DrawSelection(Graphics gfx, Pen pen)
+        private void DrawSelection(Graphics gfx)
         {
-            if (selection == null || !selection.Drawable)
+            if (selection == null || !selection.Valid)
             {
                 return;
             }
 
             for (int cell = selection.From; cell <= selection.To; cell++)
             {
-                gfx.DrawRectangle(pen, GetCellPosition(cell), cellSize);
+                gfx.DrawRectangle(selectionPen, GetCellPosition(cell), cellSize);
+            }
+        }
+
+        private void DrawCells(Graphics gfx, IEnumerable<Memory.CellType> cells)
+        {
+            var i = -1;
+            foreach (var cell in cells)
+            {
+                i++;
+
+                if(!cellBrushes.TryGetValue(cell, out var brush) || brush == null)
+                {
+                    continue;
+                }
+
+                gfx.FillRectangle(brush, GetCellPosition(i), cellSize);
             }
         }
     }
