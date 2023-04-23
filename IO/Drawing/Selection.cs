@@ -2,7 +2,7 @@
 
 namespace IO
 {
-    public class Selection : ISelection
+    public class Selection
     {
         private readonly int cellsCount;
 
