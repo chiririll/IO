@@ -157,7 +157,7 @@
             this.cpuMemorySize.Size = new System.Drawing.Size(230, 20);
             this.cpuMemorySize.TabIndex = 6;
             this.cpuMemorySize.Value = new decimal(new int[] {
-            100,
+            432,
             0,
             0,
             0});
@@ -331,7 +331,7 @@
             this.externalMemorySize.Size = new System.Drawing.Size(230, 20);
             this.externalMemorySize.TabIndex = 16;
             this.externalMemorySize.Value = new decimal(new int[] {
-            100,
+            216,
             0,
             0,
             0});
