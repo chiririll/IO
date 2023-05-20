@@ -95,11 +95,12 @@
             this.cpuMemoryLabel.AutoSize = true;
             this.cpuMemoryLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cpuMemoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cpuMemoryLabel.Location = new System.Drawing.Point(3, 0);
-            this.cpuMemoryLabel.MaximumSize = new System.Drawing.Size(0, 30);
-            this.cpuMemoryLabel.MinimumSize = new System.Drawing.Size(0, 30);
+            this.cpuMemoryLabel.Location = new System.Drawing.Point(4, 0);
+            this.cpuMemoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.cpuMemoryLabel.MaximumSize = new System.Drawing.Size(0, 37);
+            this.cpuMemoryLabel.MinimumSize = new System.Drawing.Size(0, 37);
             this.cpuMemoryLabel.Name = "cpuMemoryLabel";
-            this.cpuMemoryLabel.Size = new System.Drawing.Size(280, 30);
+            this.cpuMemoryLabel.Size = new System.Drawing.Size(373, 37);
             this.cpuMemoryLabel.TabIndex = 1;
             this.cpuMemoryLabel.Text = "Оперативная память процессора";
             this.cpuMemoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -109,11 +110,12 @@
             this.externalMemoryLabel.AutoSize = true;
             this.externalMemoryLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.externalMemoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.externalMemoryLabel.Location = new System.Drawing.Point(3, 0);
-            this.externalMemoryLabel.MaximumSize = new System.Drawing.Size(0, 30);
-            this.externalMemoryLabel.MinimumSize = new System.Drawing.Size(0, 30);
+            this.externalMemoryLabel.Location = new System.Drawing.Point(4, 0);
+            this.externalMemoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.externalMemoryLabel.MaximumSize = new System.Drawing.Size(0, 37);
+            this.externalMemoryLabel.MinimumSize = new System.Drawing.Size(0, 37);
             this.externalMemoryLabel.Name = "externalMemoryLabel";
-            this.externalMemoryLabel.Size = new System.Drawing.Size(280, 30);
+            this.externalMemoryLabel.Size = new System.Drawing.Size(373, 37);
             this.externalMemoryLabel.TabIndex = 2;
             this.externalMemoryLabel.Text = "Внешнее устройство";
             this.externalMemoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -122,8 +124,9 @@
             // 
             this.cpuMemoryPicture.Dock = System.Windows.Forms.DockStyle.Top;
             this.cpuMemoryPicture.Location = new System.Drawing.Point(0, 0);
+            this.cpuMemoryPicture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cpuMemoryPicture.Name = "cpuMemoryPicture";
-            this.cpuMemoryPicture.Size = new System.Drawing.Size(280, 275);
+            this.cpuMemoryPicture.Size = new System.Drawing.Size(373, 338);
             this.cpuMemoryPicture.TabIndex = 3;
             this.cpuMemoryPicture.TabStop = false;
             // 
@@ -131,30 +134,33 @@
             // 
             this.externalMemoryPicture.Dock = System.Windows.Forms.DockStyle.Top;
             this.externalMemoryPicture.Location = new System.Drawing.Point(0, 0);
+            this.externalMemoryPicture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.externalMemoryPicture.Name = "externalMemoryPicture";
-            this.externalMemoryPicture.Size = new System.Drawing.Size(280, 275);
+            this.externalMemoryPicture.Size = new System.Drawing.Size(373, 338);
             this.externalMemoryPicture.TabIndex = 4;
             this.externalMemoryPicture.TabStop = false;
             // 
             // cpuMemorySizeLabel
             // 
             this.cpuMemorySizeLabel.AutoSize = true;
-            this.cpuMemorySizeLabel.Location = new System.Drawing.Point(5, 30);
+            this.cpuMemorySizeLabel.Location = new System.Drawing.Point(7, 37);
+            this.cpuMemorySizeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.cpuMemorySizeLabel.Name = "cpuMemorySizeLabel";
-            this.cpuMemorySizeLabel.Size = new System.Drawing.Size(217, 13);
+            this.cpuMemorySizeLabel.Size = new System.Drawing.Size(278, 16);
             this.cpuMemorySizeLabel.TabIndex = 5;
-            this.cpuMemorySizeLabel.Text = "Размер оперативерй памяти процессора";
+            this.cpuMemorySizeLabel.Text = "Размер оперативной памяти процессора";
             // 
             // cpuMemorySize
             // 
-            this.cpuMemorySize.Location = new System.Drawing.Point(5, 46);
+            this.cpuMemorySize.Location = new System.Drawing.Point(7, 57);
+            this.cpuMemorySize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cpuMemorySize.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.cpuMemorySize.Name = "cpuMemorySize";
-            this.cpuMemorySize.Size = new System.Drawing.Size(230, 20);
+            this.cpuMemorySize.Size = new System.Drawing.Size(307, 22);
             this.cpuMemorySize.TabIndex = 6;
             this.cpuMemorySize.Value = new decimal(new int[] {
             432,
@@ -164,9 +170,10 @@
             // 
             // transferBtn
             // 
-            this.transferBtn.Location = new System.Drawing.Point(135, 114);
+            this.transferBtn.Location = new System.Drawing.Point(180, 140);
+            this.transferBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.transferBtn.Name = "transferBtn";
-            this.transferBtn.Size = new System.Drawing.Size(100, 23);
+            this.transferBtn.Size = new System.Drawing.Size(133, 28);
             this.transferBtn.TabIndex = 8;
             this.transferBtn.Text = "Передать";
             this.transferBtn.UseVisualStyleBackColor = true;
@@ -174,9 +181,10 @@
             // transferDirectionBtn
             // 
             this.transferDirectionBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.transferDirectionBtn.Location = new System.Drawing.Point(5, 85);
+            this.transferDirectionBtn.Location = new System.Drawing.Point(7, 105);
+            this.transferDirectionBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.transferDirectionBtn.Name = "transferDirectionBtn";
-            this.transferDirectionBtn.Size = new System.Drawing.Size(230, 23);
+            this.transferDirectionBtn.Size = new System.Drawing.Size(307, 28);
             this.transferDirectionBtn.TabIndex = 9;
             this.transferDirectionBtn.Text = "--->";
             this.transferDirectionBtn.UseVisualStyleBackColor = true;
@@ -184,9 +192,10 @@
             // transferDirectionLabel
             // 
             this.transferDirectionLabel.AutoSize = true;
-            this.transferDirectionLabel.Location = new System.Drawing.Point(5, 69);
+            this.transferDirectionLabel.Location = new System.Drawing.Point(7, 85);
+            this.transferDirectionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.transferDirectionLabel.Name = "transferDirectionLabel";
-            this.transferDirectionLabel.Size = new System.Drawing.Size(125, 13);
+            this.transferDirectionLabel.Size = new System.Drawing.Size(164, 16);
             this.transferDirectionLabel.TabIndex = 10;
             this.transferDirectionLabel.Text = "Направление передачи";
             // 
@@ -194,26 +203,29 @@
             // 
             this.stateLabel.AutoSize = true;
             this.stateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stateLabel.Location = new System.Drawing.Point(3, 0);
+            this.stateLabel.Location = new System.Drawing.Point(4, 0);
+            this.stateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.stateLabel.Name = "stateLabel";
-            this.stateLabel.Size = new System.Drawing.Size(134, 13);
+            this.stateLabel.Size = new System.Drawing.Size(168, 17);
             this.stateLabel.TabIndex = 11;
             this.stateLabel.Text = "Состояние процесса:";
             // 
             // transferProgressBar
             // 
-            this.transferProgressBar.Location = new System.Drawing.Point(5, 143);
+            this.transferProgressBar.Location = new System.Drawing.Point(7, 176);
+            this.transferProgressBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.transferProgressBar.Name = "transferProgressBar";
-            this.transferProgressBar.Size = new System.Drawing.Size(230, 23);
+            this.transferProgressBar.Size = new System.Drawing.Size(307, 28);
             this.transferProgressBar.TabIndex = 12;
             this.transferProgressBar.Value = 30;
             // 
             // stateText
             // 
             this.stateText.AutoSize = true;
-            this.stateText.Location = new System.Drawing.Point(3, 13);
+            this.stateText.Location = new System.Drawing.Point(4, 17);
+            this.stateText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.stateText.Name = "stateText";
-            this.stateText.Size = new System.Drawing.Size(112, 13);
+            this.stateText.Size = new System.Drawing.Size(137, 16);
             this.stateText.TabIndex = 13;
             this.stateText.Text = "Передача (300/1000)";
             // 
@@ -228,10 +240,11 @@
             this.rootTableLayout.Controls.Add(this.externalMemoryTableLayout, 2, 0);
             this.rootTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rootTableLayout.Location = new System.Drawing.Point(0, 0);
+            this.rootTableLayout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rootTableLayout.Name = "rootTableLayout";
             this.rootTableLayout.RowCount = 1;
             this.rootTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.rootTableLayout.Size = new System.Drawing.Size(834, 531);
+            this.rootTableLayout.Size = new System.Drawing.Size(1112, 654);
             this.rootTableLayout.TabIndex = 15;
             // 
             // controlsTableLayout
@@ -242,13 +255,14 @@
             this.controlsTableLayout.Controls.Add(this.settingsPanel, 0, 0);
             this.controlsTableLayout.Controls.Add(this.selectionPanel, 0, 1);
             this.controlsTableLayout.Controls.Add(this.transferPanel, 0, 2);
-            this.controlsTableLayout.Location = new System.Drawing.Point(295, 3);
+            this.controlsTableLayout.Location = new System.Drawing.Point(393, 4);
+            this.controlsTableLayout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.controlsTableLayout.Name = "controlsTableLayout";
             this.controlsTableLayout.RowCount = 3;
             this.controlsTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.controlsTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.controlsTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.controlsTableLayout.Size = new System.Drawing.Size(244, 521);
+            this.controlsTableLayout.Size = new System.Drawing.Size(326, 644);
             this.controlsTableLayout.TabIndex = 24;
             // 
             // settingsPanel
@@ -263,16 +277,18 @@
             this.settingsPanel.Controls.Add(this.applySettingsButton);
             this.settingsPanel.Controls.Add(this.externalMemorySize);
             this.settingsPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.settingsPanel.Location = new System.Drawing.Point(3, 3);
+            this.settingsPanel.Location = new System.Drawing.Point(4, 4);
+            this.settingsPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.settingsPanel.Name = "settingsPanel";
-            this.settingsPanel.Size = new System.Drawing.Size(238, 176);
+            this.settingsPanel.Size = new System.Drawing.Size(318, 217);
             this.settingsPanel.TabIndex = 0;
             // 
             // bytesInBlock
             // 
-            this.bytesInBlock.Location = new System.Drawing.Point(5, 124);
+            this.bytesInBlock.Location = new System.Drawing.Point(7, 153);
+            this.bytesInBlock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bytesInBlock.Name = "bytesInBlock";
-            this.bytesInBlock.Size = new System.Drawing.Size(230, 20);
+            this.bytesInBlock.Size = new System.Drawing.Size(307, 22);
             this.bytesInBlock.TabIndex = 22;
             this.bytesInBlock.Value = new decimal(new int[] {
             64,
@@ -285,8 +301,9 @@
             this.settingsLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.settingsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settingsLabel.Location = new System.Drawing.Point(0, 0);
+            this.settingsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.settingsLabel.Name = "settingsLabel";
-            this.settingsLabel.Size = new System.Drawing.Size(238, 30);
+            this.settingsLabel.Size = new System.Drawing.Size(318, 37);
             this.settingsLabel.TabIndex = 23;
             this.settingsLabel.Text = "Параметры";
             this.settingsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -294,26 +311,29 @@
             // bytesInBlockLabel
             // 
             this.bytesInBlockLabel.AutoSize = true;
-            this.bytesInBlockLabel.Location = new System.Drawing.Point(5, 108);
+            this.bytesInBlockLabel.Location = new System.Drawing.Point(7, 133);
+            this.bytesInBlockLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.bytesInBlockLabel.Name = "bytesInBlockLabel";
-            this.bytesInBlockLabel.Size = new System.Drawing.Size(134, 13);
+            this.bytesInBlockLabel.Size = new System.Drawing.Size(172, 16);
             this.bytesInBlockLabel.TabIndex = 21;
             this.bytesInBlockLabel.Text = "Количество байт в блоке";
             // 
             // externalMemorySizeLabel
             // 
             this.externalMemorySizeLabel.AutoSize = true;
-            this.externalMemorySizeLabel.Location = new System.Drawing.Point(5, 69);
+            this.externalMemorySizeLabel.Location = new System.Drawing.Point(7, 85);
+            this.externalMemorySizeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.externalMemorySizeLabel.Name = "externalMemorySizeLabel";
-            this.externalMemorySizeLabel.Size = new System.Drawing.Size(198, 13);
+            this.externalMemorySizeLabel.Size = new System.Drawing.Size(252, 16);
             this.externalMemorySizeLabel.TabIndex = 15;
             this.externalMemorySizeLabel.Text = "Размер памяти внешнего устройства";
             // 
             // applySettingsButton
             // 
-            this.applySettingsButton.Location = new System.Drawing.Point(5, 150);
+            this.applySettingsButton.Location = new System.Drawing.Point(7, 185);
+            this.applySettingsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.applySettingsButton.Name = "applySettingsButton";
-            this.applySettingsButton.Size = new System.Drawing.Size(230, 23);
+            this.applySettingsButton.Size = new System.Drawing.Size(307, 28);
             this.applySettingsButton.TabIndex = 18;
             this.applySettingsButton.Text = "Применить";
             this.applySettingsButton.UseVisualStyleBackColor = true;
@@ -321,14 +341,15 @@
             // 
             // externalMemorySize
             // 
-            this.externalMemorySize.Location = new System.Drawing.Point(5, 85);
+            this.externalMemorySize.Location = new System.Drawing.Point(7, 105);
+            this.externalMemorySize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.externalMemorySize.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
             this.externalMemorySize.Name = "externalMemorySize";
-            this.externalMemorySize.Size = new System.Drawing.Size(230, 20);
+            this.externalMemorySize.Size = new System.Drawing.Size(307, 22);
             this.externalMemorySize.TabIndex = 16;
             this.externalMemorySize.Value = new decimal(new int[] {
             216,
@@ -346,16 +367,18 @@
             this.selectionPanel.Controls.Add(this.selectionClearButtons);
             this.selectionPanel.Controls.Add(this.selectionLabel);
             this.selectionPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.selectionPanel.Location = new System.Drawing.Point(3, 185);
+            this.selectionPanel.Location = new System.Drawing.Point(4, 229);
+            this.selectionPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.selectionPanel.Name = "selectionPanel";
-            this.selectionPanel.Size = new System.Drawing.Size(238, 118);
+            this.selectionPanel.Size = new System.Drawing.Size(318, 145);
             this.selectionPanel.TabIndex = 17;
             // 
             // fillBlocksButton
             // 
-            this.fillBlocksButton.Location = new System.Drawing.Point(135, 92);
+            this.fillBlocksButton.Location = new System.Drawing.Point(180, 113);
+            this.fillBlocksButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.fillBlocksButton.Name = "fillBlocksButton";
-            this.fillBlocksButton.Size = new System.Drawing.Size(100, 23);
+            this.fillBlocksButton.Size = new System.Drawing.Size(133, 28);
             this.fillBlocksButton.TabIndex = 8;
             this.fillBlocksButton.Text = "Заполнить";
             this.fillBlocksButton.UseVisualStyleBackColor = true;
@@ -363,9 +386,10 @@
             // 
             // clearBlocksButton
             // 
-            this.clearBlocksButton.Location = new System.Drawing.Point(4, 92);
+            this.clearBlocksButton.Location = new System.Drawing.Point(5, 113);
+            this.clearBlocksButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clearBlocksButton.Name = "clearBlocksButton";
-            this.clearBlocksButton.Size = new System.Drawing.Size(100, 23);
+            this.clearBlocksButton.Size = new System.Drawing.Size(133, 28);
             this.clearBlocksButton.TabIndex = 7;
             this.clearBlocksButton.Text = "Очистить";
             this.clearBlocksButton.UseVisualStyleBackColor = true;
@@ -374,18 +398,20 @@
             // memoryActionsLabel
             // 
             this.memoryActionsLabel.AutoSize = true;
-            this.memoryActionsLabel.Location = new System.Drawing.Point(5, 76);
+            this.memoryActionsLabel.Location = new System.Drawing.Point(7, 94);
+            this.memoryActionsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.memoryActionsLabel.Name = "memoryActionsLabel";
-            this.memoryActionsLabel.Size = new System.Drawing.Size(113, 13);
+            this.memoryActionsLabel.Size = new System.Drawing.Size(138, 16);
             this.memoryActionsLabel.TabIndex = 6;
             this.memoryActionsLabel.Text = "Действия с блоками";
             // 
             // selectionClearLabel
             // 
             this.selectionClearLabel.AutoSize = true;
-            this.selectionClearLabel.Location = new System.Drawing.Point(5, 29);
+            this.selectionClearLabel.Location = new System.Drawing.Point(7, 36);
+            this.selectionClearLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.selectionClearLabel.Name = "selectionClearLabel";
-            this.selectionClearLabel.Size = new System.Drawing.Size(113, 13);
+            this.selectionClearLabel.Size = new System.Drawing.Size(145, 16);
             this.selectionClearLabel.TabIndex = 5;
             this.selectionClearLabel.Text = "Очистить выделение";
             // 
@@ -398,19 +424,21 @@
             this.selectionClearButtons.Controls.Add(this.clearCpuSelectionButton, 0, 0);
             this.selectionClearButtons.Controls.Add(this.clearExternalSelectionButton, 2, 0);
             this.selectionClearButtons.Controls.Add(this.clearSelectionButton, 1, 0);
-            this.selectionClearButtons.Location = new System.Drawing.Point(5, 45);
+            this.selectionClearButtons.Location = new System.Drawing.Point(7, 55);
+            this.selectionClearButtons.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.selectionClearButtons.Name = "selectionClearButtons";
             this.selectionClearButtons.RowCount = 1;
             this.selectionClearButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.selectionClearButtons.Size = new System.Drawing.Size(230, 28);
+            this.selectionClearButtons.Size = new System.Drawing.Size(307, 34);
             this.selectionClearButtons.TabIndex = 4;
             // 
             // clearCpuSelectionButton
             // 
             this.clearCpuSelectionButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.clearCpuSelectionButton.Location = new System.Drawing.Point(3, 3);
+            this.clearCpuSelectionButton.Location = new System.Drawing.Point(4, 4);
+            this.clearCpuSelectionButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clearCpuSelectionButton.Name = "clearCpuSelectionButton";
-            this.clearCpuSelectionButton.Size = new System.Drawing.Size(70, 22);
+            this.clearCpuSelectionButton.Size = new System.Drawing.Size(94, 26);
             this.clearCpuSelectionButton.TabIndex = 1;
             this.clearCpuSelectionButton.Text = "ОПП";
             this.clearCpuSelectionButton.UseVisualStyleBackColor = true;
@@ -419,9 +447,10 @@
             // clearExternalSelectionButton
             // 
             this.clearExternalSelectionButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.clearExternalSelectionButton.Location = new System.Drawing.Point(155, 3);
+            this.clearExternalSelectionButton.Location = new System.Drawing.Point(208, 4);
+            this.clearExternalSelectionButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clearExternalSelectionButton.Name = "clearExternalSelectionButton";
-            this.clearExternalSelectionButton.Size = new System.Drawing.Size(72, 22);
+            this.clearExternalSelectionButton.Size = new System.Drawing.Size(95, 26);
             this.clearExternalSelectionButton.TabIndex = 2;
             this.clearExternalSelectionButton.Text = "Внеш.";
             this.clearExternalSelectionButton.UseVisualStyleBackColor = true;
@@ -430,9 +459,10 @@
             // clearSelectionButton
             // 
             this.clearSelectionButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.clearSelectionButton.Location = new System.Drawing.Point(79, 3);
+            this.clearSelectionButton.Location = new System.Drawing.Point(106, 4);
+            this.clearSelectionButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clearSelectionButton.Name = "clearSelectionButton";
-            this.clearSelectionButton.Size = new System.Drawing.Size(70, 22);
+            this.clearSelectionButton.Size = new System.Drawing.Size(94, 26);
             this.clearSelectionButton.TabIndex = 3;
             this.clearSelectionButton.Text = "Все";
             this.clearSelectionButton.UseVisualStyleBackColor = true;
@@ -443,8 +473,9 @@
             this.selectionLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.selectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectionLabel.Location = new System.Drawing.Point(0, 0);
+            this.selectionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.selectionLabel.Name = "selectionLabel";
-            this.selectionLabel.Size = new System.Drawing.Size(238, 30);
+            this.selectionLabel.Size = new System.Drawing.Size(318, 37);
             this.selectionLabel.TabIndex = 0;
             this.selectionLabel.Text = "Выделение";
             this.selectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -462,17 +493,19 @@
             this.transferPanel.Controls.Add(this.transferProgressBar);
             this.transferPanel.Controls.Add(this.transferBtn);
             this.transferPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.transferPanel.Location = new System.Drawing.Point(3, 309);
+            this.transferPanel.Location = new System.Drawing.Point(4, 382);
+            this.transferPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.transferPanel.Name = "transferPanel";
-            this.transferPanel.Size = new System.Drawing.Size(238, 209);
+            this.transferPanel.Size = new System.Drawing.Size(318, 258);
             this.transferPanel.TabIndex = 16;
             // 
             // cancelTransferBtn
             // 
             this.cancelTransferBtn.Enabled = false;
-            this.cancelTransferBtn.Location = new System.Drawing.Point(5, 114);
+            this.cancelTransferBtn.Location = new System.Drawing.Point(7, 140);
+            this.cancelTransferBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cancelTransferBtn.Name = "cancelTransferBtn";
-            this.cancelTransferBtn.Size = new System.Drawing.Size(100, 23);
+            this.cancelTransferBtn.Size = new System.Drawing.Size(133, 28);
             this.cancelTransferBtn.TabIndex = 22;
             this.cancelTransferBtn.Text = "Отменить";
             this.cancelTransferBtn.UseVisualStyleBackColor = true;
@@ -482,15 +515,17 @@
             this.transferLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.transferLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.transferLabel.Location = new System.Drawing.Point(0, 0);
+            this.transferLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.transferLabel.Name = "transferLabel";
-            this.transferLabel.Size = new System.Drawing.Size(238, 30);
+            this.transferLabel.Size = new System.Drawing.Size(318, 37);
             this.transferLabel.TabIndex = 21;
             this.transferLabel.Text = "Передача";
             this.transferLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // transferSpeed
             // 
-            this.transferSpeed.Location = new System.Drawing.Point(5, 46);
+            this.transferSpeed.Location = new System.Drawing.Point(7, 57);
+            this.transferSpeed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.transferSpeed.Maximum = new decimal(new int[] {
             2147483647,
             0,
@@ -502,7 +537,7 @@
             0,
             0});
             this.transferSpeed.Name = "transferSpeed";
-            this.transferSpeed.Size = new System.Drawing.Size(230, 20);
+            this.transferSpeed.Size = new System.Drawing.Size(307, 22);
             this.transferSpeed.TabIndex = 20;
             this.transferSpeed.Value = new decimal(new int[] {
             4096,
@@ -513,9 +548,10 @@
             // transferSpeedLabel
             // 
             this.transferSpeedLabel.AutoSize = true;
-            this.transferSpeedLabel.Location = new System.Drawing.Point(5, 30);
+            this.transferSpeedLabel.Location = new System.Drawing.Point(7, 37);
+            this.transferSpeedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.transferSpeedLabel.Name = "transferSpeedLabel";
-            this.transferSpeedLabel.Size = new System.Drawing.Size(142, 13);
+            this.transferSpeedLabel.Size = new System.Drawing.Size(180, 16);
             this.transferSpeedLabel.TabIndex = 19;
             this.transferSpeedLabel.Text = "Скорость передачи (бит/с)";
             // 
@@ -523,9 +559,10 @@
             // 
             this.processStateFlowLayout.Controls.Add(this.stateLabel);
             this.processStateFlowLayout.Controls.Add(this.stateText);
-            this.processStateFlowLayout.Location = new System.Drawing.Point(5, 172);
+            this.processStateFlowLayout.Location = new System.Drawing.Point(7, 212);
+            this.processStateFlowLayout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.processStateFlowLayout.Name = "processStateFlowLayout";
-            this.processStateFlowLayout.Size = new System.Drawing.Size(230, 34);
+            this.processStateFlowLayout.Size = new System.Drawing.Size(307, 42);
             this.processStateFlowLayout.TabIndex = 14;
             // 
             // cpuMemoryTableLayout
@@ -535,12 +572,13 @@
             this.cpuMemoryTableLayout.Controls.Add(this.cpuMemoryScrollView, 0, 1);
             this.cpuMemoryTableLayout.Controls.Add(this.cpuMemoryLabel, 0, 0);
             this.cpuMemoryTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cpuMemoryTableLayout.Location = new System.Drawing.Point(3, 3);
+            this.cpuMemoryTableLayout.Location = new System.Drawing.Point(4, 4);
+            this.cpuMemoryTableLayout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cpuMemoryTableLayout.Name = "cpuMemoryTableLayout";
             this.cpuMemoryTableLayout.RowCount = 2;
             this.cpuMemoryTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.cpuMemoryTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.cpuMemoryTableLayout.Size = new System.Drawing.Size(286, 525);
+            this.cpuMemoryTableLayout.Size = new System.Drawing.Size(381, 646);
             this.cpuMemoryTableLayout.TabIndex = 18;
             // 
             // cpuMemoryScrollView
@@ -548,9 +586,10 @@
             this.cpuMemoryScrollView.AutoScroll = true;
             this.cpuMemoryScrollView.Controls.Add(this.cpuMemoryPicture);
             this.cpuMemoryScrollView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cpuMemoryScrollView.Location = new System.Drawing.Point(3, 33);
+            this.cpuMemoryScrollView.Location = new System.Drawing.Point(4, 41);
+            this.cpuMemoryScrollView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cpuMemoryScrollView.Name = "cpuMemoryScrollView";
-            this.cpuMemoryScrollView.Size = new System.Drawing.Size(280, 568);
+            this.cpuMemoryScrollView.Size = new System.Drawing.Size(373, 699);
             this.cpuMemoryScrollView.TabIndex = 2;
             // 
             // externalMemoryTableLayout
@@ -560,12 +599,13 @@
             this.externalMemoryTableLayout.Controls.Add(this.externalMemoryScrollView, 0, 1);
             this.externalMemoryTableLayout.Controls.Add(this.externalMemoryLabel, 0, 0);
             this.externalMemoryTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.externalMemoryTableLayout.Location = new System.Drawing.Point(545, 3);
+            this.externalMemoryTableLayout.Location = new System.Drawing.Point(727, 4);
+            this.externalMemoryTableLayout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.externalMemoryTableLayout.Name = "externalMemoryTableLayout";
             this.externalMemoryTableLayout.RowCount = 2;
             this.externalMemoryTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.externalMemoryTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.externalMemoryTableLayout.Size = new System.Drawing.Size(286, 525);
+            this.externalMemoryTableLayout.Size = new System.Drawing.Size(381, 646);
             this.externalMemoryTableLayout.TabIndex = 19;
             // 
             // externalMemoryScrollView
@@ -573,9 +613,10 @@
             this.externalMemoryScrollView.AutoScroll = true;
             this.externalMemoryScrollView.Controls.Add(this.externalMemoryPicture);
             this.externalMemoryScrollView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.externalMemoryScrollView.Location = new System.Drawing.Point(3, 33);
+            this.externalMemoryScrollView.Location = new System.Drawing.Point(4, 41);
+            this.externalMemoryScrollView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.externalMemoryScrollView.Name = "externalMemoryScrollView";
-            this.externalMemoryScrollView.Size = new System.Drawing.Size(280, 568);
+            this.externalMemoryScrollView.Size = new System.Drawing.Size(373, 699);
             this.externalMemoryScrollView.TabIndex = 15;
             // 
             // updateTimer
@@ -586,11 +627,12 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 531);
+            this.ClientSize = new System.Drawing.Size(1112, 654);
             this.Controls.Add(this.rootTableLayout);
-            this.MinimumSize = new System.Drawing.Size(800, 570);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1061, 691);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Модель канала ввода/вывода данных";

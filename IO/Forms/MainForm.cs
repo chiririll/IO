@@ -81,7 +81,7 @@ namespace IO
         {
             cpuMemory.FillCellsInSelection();
             externalMemory.FillCellsInSelection();
-            ClearSelection(true, true);
+            //ClearSelection(true, true);
         }
         #endregion Selection
 
